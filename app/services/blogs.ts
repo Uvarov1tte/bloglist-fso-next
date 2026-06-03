@@ -17,7 +17,8 @@ const blogs = [
 let nextId = 3
 
 export const getBlogs = () => {
-    return blogs
+    const sorted = [...blogs].sort((a, b) => b.likes - a.likes)
+    return sorted
 }
 
 export const addBlogs = (title: string, author: string, url: string) => {
