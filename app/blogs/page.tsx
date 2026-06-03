@@ -1,23 +1,8 @@
 import Link from "next/link"
-
-const blogs = [
-    {
-        id: 1,
-        title: "Lorem Ipsum",
-        author: 'John Doe',
-        url: 'localhost:99999/01',
-        likes: 1
-    },
-    {
-        id: 2,
-        title: "Lorem Ipsum",
-        author: 'Jane Doe',
-        url: 'localhost:99999/02',
-        likes: 3
-    },
-]
+import { getBlogs } from "../services/blogs"
 
 const Blogs = () => {
+    const blogs = getBlogs()
     return (
         <div>
             <h2>Blogs</h2>
