@@ -1,6 +1,7 @@
 import { desc, eq, ilike, sql } from "drizzle-orm"
 import { db } from "../../db"
 import { blogs } from "../../db/schema"
+import { getCurrentUser } from "./session"
 
 
 let nextId = 3
@@ -15,9 +16,7 @@ export const getBlogs = async (filter?: string) => {
 }
 
 export const addBlogs = async (title: string, author: string, url: string) => {
-    const user = await db.query.users.findFirst({
-        orderBy: sql`RANDOM()`,
-    })
+    const user = await getCurrentUser()
     if (user) {
         await db.insert(blogs).values({ title, author, url, userId: user.id })
     }
