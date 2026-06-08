@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation"
-import { getBlogById } from "../../services/blogs"
+import { getBlogById } from "@/services/blogs"
 import Link from "next/link"
 import { addLikeToBlog } from "@/app/actions/blogs"
 

@@ -1,6 +1,6 @@
 import { desc, eq, ilike, sql } from "drizzle-orm"
-import { db } from "../../db"
-import { blogs } from "../../db/schema"
+import { db } from "@/db"
+import { blogs } from "@/db/schema"
 import { getCurrentUser } from "./session"
 
 
