@@ -1,8 +1,12 @@
 import { notFound } from "next/navigation"
 import { getCurrentUser } from "@/app//services/session"
+import Button from "../components/Button"
+import { generateNewToken } from "../actions/users"
 
 const MePage = async () => {
     const user = await getCurrentUser()
+    const token = crypto.randomUUID()
+
     if (!user) {
         notFound()
     } else {
@@ -13,6 +17,21 @@ const MePage = async () => {
                 <p className="my-2 mb-6"><span className="font-bold">Username</span>: {user.username}</p>
                 <hr />
                 <h2 className="text-2xl font-bold my-6">API Token</h2>
+                <div className="border p-4 mx-auto">
+                    {user.token ? (
+                        <>
+                            <p>Current token:</p>
+                            <div className="border p-2 my-2 border-gray-500">{user.token}</div>
+                        </>
+                    ) :
+                        <p>No token has been generated yet.</p>
+                    }
+                </div>
+
+                <form action={generateNewToken}>
+                    <input type="hidden" name="id" value={user.id} />
+                    <Button type="submit" className="mt-6">Generate new token</Button>
+                </form>
             </div>
         )
     }

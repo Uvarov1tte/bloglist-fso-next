@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs"
 import { db } from "@/db"
 import { users } from "@/db/schema"
 import { eq } from "drizzle-orm"
+import { getUserById } from "../services/users"
+import { revalidatePath } from "next/cache"
 
 export const registerUser = async (
     prevState: { errors: Object, values: Object, success: boolean },
@@ -15,10 +17,10 @@ export const registerUser = async (
         errors = { ...errors, username: "Username must be at least 4 characters long" }
     }
     const existed = await db.query.users.findFirst({
-            where: eq(users.username, username),
+        where: eq(users.username, username),
     })
     if (existed) {
-        errors = { ...errors, notUnique: "Username must be unique"}
+        errors = { ...errors, notUnique: "Username must be unique" }
     }
 
     const name = (formData.get("name") as string).trim()
@@ -42,4 +44,17 @@ export const registerUser = async (
 
     await db.insert(users).values({ username, name, passwordHash })
     return { errors: {}, values: {}, success: true }
+}
+
+export const generateNewToken = async (formData: FormData) => {
+    const id = Number(formData.get("id"))
+    const newToken = crypto.randomUUID()
+    const user = await getUserById(id)
+    if (user) {
+        await db
+            .update(users)
+            .set({ token: newToken })
+            .where(eq(users.id, id))
+    }
+    revalidatePath("/me")
 }

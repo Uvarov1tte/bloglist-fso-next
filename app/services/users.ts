@@ -7,9 +7,14 @@ export const getUsers = async () => {
 }
 
 export const getUserWithNotes = async (username: string) => {
-    console.log(username)
     return db.query.users.findFirst({
         where: eq(users.username, username),
         with: { blogs: true },
+    })
+}
+
+export const getUserById = async (id: number) => {
+    return db.query.users.findFirst({
+        where: eq(users.id, id),
     })
 }
