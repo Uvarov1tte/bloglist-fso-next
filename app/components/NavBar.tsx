@@ -12,8 +12,12 @@ export default function NavBar() {
             <NavLink href="/" >home</NavLink>
             {" | "}
             <NavLink href="/blogs" >blogs</NavLink>
-            {" | "}
-            {session && <NavLink href="/blogs/new" >Create new blog</NavLink>}
+            {session && (
+                <>
+                    {" | "}
+                    <NavLink href="/blogs/new" >Create new blog</NavLink>
+                </>
+            )}
 
             <div className="ml-auto flex items-center gap-4">
                 <NavLink href="/users">All users</NavLink>
@@ -21,6 +25,10 @@ export default function NavBar() {
                 {session ? (
                     <>
                         <em>{session.user?.name} logged in</em>{" "}
+                        {" | "}
+                        <NavLink href="/me" >me</NavLink>
+
+                        {" | "}
                         <button onClick={() => signOut()}>logout</button>
                     </>
                 ) : (
