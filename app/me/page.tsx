@@ -5,7 +5,6 @@ import { generateNewToken } from "../actions/users"
 
 const MePage = async () => {
     const user = await getCurrentUser()
-    const token = crypto.randomUUID()
 
     if (!user) {
         notFound()
