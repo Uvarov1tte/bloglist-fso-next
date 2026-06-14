@@ -19,7 +19,11 @@ export const getCurrentUser = async () => {
         with: {
             reading_list: {
                 with: {
-                    blog: true,
+                    blog: {
+                        columns: {
+                            title: true
+                        },
+                    },
                 },
             },
         },
