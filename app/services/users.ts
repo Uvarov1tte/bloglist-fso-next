@@ -14,7 +14,7 @@ export const getUserWithBlogs = async (username: string) => {
             name: true
         },
         where: eq(users.username, username),
-        with: { blogs: true },
+        with: { blogs: true, reading_list: true },
     })
 }
 
@@ -29,7 +29,8 @@ export const getUserByToken = async (token: string) => {
         columns: {
             id: true,
             username: true,
-            name: true
+            name: true,
+            token: true
         },
         where: eq(users.token, token),
         with: { blogs: true },

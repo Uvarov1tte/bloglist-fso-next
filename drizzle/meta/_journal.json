@@ -36,6 +36,13 @@
       "when": 1781086499645,
       "tag": "0004_parched_bromley",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1781384582282,
+      "tag": "0005_slow_galactus",
+      "breakpoints": true
     }
   ]
 }

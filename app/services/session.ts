@@ -1,7 +1,7 @@
 import { auth } from "@/auth"
 import { eq } from "drizzle-orm"
 import { db } from "@/db"
-import { users } from "@/db/schema"
+import { users, readingList, blogs } from "@/db/schema"
 
 export const getCurrentUser = async () => {
     const session = await auth()
@@ -10,6 +10,19 @@ export const getCurrentUser = async () => {
     }
 
     return db.query.users.findFirst({
+        columns: {
+            id: true,
+            username: true,
+            name: true,
+            token: true
+        },
+        with: {
+            reading_list: {
+                with: {
+                    blog: true,
+                },
+            },
+        },
         where: eq(users.username, session.user.email),
     })
 }
