@@ -48,7 +48,17 @@ jobs:
           fi
 
       - name: Run database migrations
+        env:
+          NODE_ENV: test
         run: npx drizzle-kit push
+      
+      - name: Start application
+        run: npm run dev > app.log 2>&1 &
+        env:
+          NODE_ENV: test
+          
+      - name: Wait for application to be ready
+        run: npx wait-on http://localhost:3000 -t 30000
 
       - name: Run Playwright tests
         run: npx playwright test
