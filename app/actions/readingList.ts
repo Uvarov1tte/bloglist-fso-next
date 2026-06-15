@@ -1,7 +1,7 @@
 "use server"
 
 import { and, eq } from "drizzle-orm"
-import { addToReadingList } from "../services/readingList"
+import { addToReadingList } from "@/app/services/readingList"
 import { revalidatePath } from "next/cache"
 import { db } from "@/db"
 import { readingList } from "@/db/schema"

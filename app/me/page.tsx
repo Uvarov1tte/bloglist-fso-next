@@ -1,9 +1,9 @@
 import { notFound, redirect } from "next/navigation"
 import { getCurrentUser } from "@/app//services/session"
-import Button from "../components/Button"
-import { generateNewToken } from "../actions/users"
-import UnreadList from "./UnreadList"
-import ReadList from "./ReadList"
+import Button from "@/app/components/Button"
+import { generateNewToken } from "@/app/actions/users"
+import UnreadList from "@/app/me/UnreadList"
+import ReadList from "@/app/me/ReadList"
 
 const MePage = async () => {
     const user = await getCurrentUser()

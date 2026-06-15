@@ -1,8 +1,8 @@
-import "./globals.css"
-import AuthSessionProvider from "./components/SessionProvider"
-import NavBar from "./components/NavBar"
-import { NotificationProvider } from "./components/NotificationContext"
-import Notification from "./components/Notification"
+import "@/app/globals.css"
+import AuthSessionProvider from "@/app/components/SessionProvider"
+import NavBar from "@/app/components/NavBar"
+import { NotificationProvider } from "@/app/components/NotificationContext"
+import Notification from "@/app/components/Notification"
 
 export default function RootLayout({
   children,

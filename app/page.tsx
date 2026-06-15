@@ -1,6 +1,6 @@
 "use client"
 
-import Homepage from "./homepage.mdx"
+import Homepage from "@/app/homepage.mdx"
 
 const Home = () => {
   return (

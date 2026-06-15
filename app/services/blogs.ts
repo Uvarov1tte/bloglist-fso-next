@@ -1,7 +1,7 @@
 import { desc, eq, ilike, sql } from "drizzle-orm"
 import { db } from "@/db"
 import { blogs } from "@/db/schema"
-import { getCurrentUser } from "./session"
+import { getCurrentUser } from "@/app/services/session"
 
 
 let nextId = 3

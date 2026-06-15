@@ -4,7 +4,7 @@ import bcrypt from "bcryptjs"
 import { db } from "@/db"
 import { users } from "@/db/schema"
 import { eq } from "drizzle-orm"
-import { getUserById } from "../services/users"
+import { getUserById } from "@/app/services/users"
 import { revalidatePath } from "next/cache"
 
 export const registerUser = async (

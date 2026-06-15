@@ -1,7 +1,7 @@
 "use client"
 
 import { useSession, signOut } from "next-auth/react"
-import NavLink from "./NavLink"
+import NavLink from "@/app/components/NavLink"
 
 export default function NavBar() {
     const { data: session } = useSession()

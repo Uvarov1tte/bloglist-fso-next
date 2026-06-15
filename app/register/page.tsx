@@ -2,10 +2,10 @@
 
 import { registerUser } from "../actions/users"
 import { useActionState, useEffect } from "react"
-import { useNotification } from "../components/NotificationContext"
+import { useNotification } from "@/app/components/NotificationContext"
 import { useRouter } from "next/navigation"
-import Button from "../components/Button"
-import Input from "../components/Input"
+import Button from "@/app/components/Button"
+import Input from "@/app/components/Input"
 
 export default function RegisterPage() {
     const [state, formAction] = useActionState(registerUser, { errors: {}, values: { username: "", name: "", password: "", passwordConfirm: "" }, success: false })

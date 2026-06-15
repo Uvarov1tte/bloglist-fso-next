@@ -1,8 +1,8 @@
 import Link from "next/link"
-import { getBlogs } from "../services/blogs"
-import { searchWithFilter } from "../actions/blogs"
-import Button from "../components/Button"
-import Input from "../components/Input"
+import { getBlogs } from "@/app/services/blogs"
+import { searchWithFilter } from "@/app/actions/blogs"
+import Button from "@/app/components/Button"
+import Input from "@/app/components/Input"
 
 const Blogs = async ({
     searchParams,

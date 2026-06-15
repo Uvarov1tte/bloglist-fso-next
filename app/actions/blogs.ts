@@ -2,7 +2,7 @@
 
 import { auth } from "@/auth"
 import { redirect } from "next/navigation"
-import { addBlogs, addLike } from "../services/blogs"
+import { addBlogs, addLike } from "@/app/services/blogs"
 import { revalidatePath } from "next/cache"
 
 export const createBlog = async (

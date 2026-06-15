@@ -3,9 +3,9 @@
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
-import Button from "../components/Button"
-import Input from "../components/Input"
-import { useNotification } from "../components/NotificationContext"
+import Button from "@/app/components/Button"
+import Input from "@/app/components/Input"
+import { useNotification } from "@/app/components/NotificationContext"
 
 export default function LoginPage() {
     const router = useRouter()

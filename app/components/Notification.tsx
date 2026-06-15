@@ -1,6 +1,6 @@
 "use client"
 
-import { useNotification } from "./NotificationContext"
+import { useNotification } from "@/app/components/NotificationContext"
 
 export default function Notification() {
     const { message, type } = useNotification()

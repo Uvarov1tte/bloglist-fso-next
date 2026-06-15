@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { markAsRead } from "../actions/readingList";
-import Button from "../components/Button";
+import { markAsRead } from "@/app/actions/readingList";
+import Button from "@/app/components/Button";
 
 interface readListProps {
     readList: { id: number; blogId: number; userId: number; blogTitle: string; read: boolean; }[]
