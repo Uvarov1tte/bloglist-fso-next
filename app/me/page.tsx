@@ -2,7 +2,6 @@ import { notFound } from "next/navigation"
 import { getCurrentUser } from "@/app//services/session"
 import Button from "../components/Button"
 import { generateNewToken } from "../actions/users"
-import Link from "next/link"
 import UnreadList from "./UnreadList"
 import ReadList from "./ReadList"
 
@@ -22,7 +21,7 @@ const MePage = async () => {
         <div className="max-w-2xl mx-auto p-6">
             <h2 className="text-2xl font-bold mb-6">My profile</h2>
             <p className="my-2"><span className="font-bold">Name</span>: {user.name}</p>
-            <p className="my-2 mb-6"><span className="font-bold">Username</span>: {user.username}</p>
+            <p className="my-2 mb-6" data-testid="user-username"><span className="font-bold">Username</span>: {user.username}</p>
             <hr />
             <h2 className="text-2xl font-bold my-6">Reading list</h2>
             <UnreadList readList={unreadBlogs} />

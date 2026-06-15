@@ -22,57 +22,54 @@ export default function RegisterPage() {
         <div className="max-w-2xl mx-auto p-6">
             <h2 className="text-2xl font-bold mb-4">Register</h2>
             <form action={formAction}>
-                <table className="w-full">
-                    <tbody>
-                        <tr>
-                            <td className="w-1/4">Username</td>
-                            <td><Input
-                                type="text"
-                                name="username"
-                                required
-                                defaultValue={state.values?.username}
-                                className="w-full"
-                            /></td>
-                        </tr>
-                        <tr>
-                            <td className="w-1/4">Name</td>
-                            <td><Input
-                                type="text"
-                                name="name"
-                                required
-                                defaultValue={state.values?.name}
-                                className="w-full"
-                            /></td>
-                        </tr>
-                        <tr>
-                            <td>Password</td>
-                            <td>
-                                <Input
-                                    type="password"
-                                    name="password"
-                                    required
-                                    defaultValue={state.values?.password}
-                                    className="w-full"
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Confirm Password</td>
-                            <td>
-                                <Input
-                                    type="password"
-                                    name="passwordConfirm"
-                                    required
-                                    defaultValue={state.values?.passwordConfirm}
-                                    className="w-full"
-                                />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">Username</div>
+                    <Input
+                        type="text"
+                        name="username"
+                        required
+                        defaultValue={state.values?.username}
+                        className="float-right w-3/4"
+                    />
+                </label>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">Name</div>
+                    <Input
+                        type="text"
+                        name="name"
+                        required
+                        defaultValue={state.values?.name}
+                        className="float-right w-3/4"
+                    />
+                </label>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">Password</div>
+                    <Input
+                        type="password"
+                        name="password"
+                        required
+                        defaultValue={state.values?.password}
+                        className="float-right w-3/4"
+                    />
+                </label>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">Confirm Password</div>
+                    <Input
+                        type="password"
+                        name="passwordConfirm"
+                        required
+                        defaultValue={state.values?.passwordConfirm}
+                        className="float-right w-3/4"
+                    />
+                </label>
 
-                <Button type="submit" className="mt-4">Register</Button>
-                {state.errors && Object.keys(state.errors).length > 0 && Object.values(state.errors).map((e: any, idx) => <p key={idx} style={{ color: "red" }}>{e.toString()}</p>)}
+                <Button testId="register-button" type="submit" className="mt-4">Register</Button>
+                {state.errors && Object.keys(state.errors).length > 0 &&
+                    <div>
+                        {Object.values(state.errors).map((e: any, idx) =>
+                            <p key={idx} data-testid={`${Object.keys(state.errors)[idx]}-error`} style={{ color: "red" }}>{e.toString()}</p>
+                        )}
+                    </div>}
             </form>
         </div>
     )
