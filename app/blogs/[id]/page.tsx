@@ -41,7 +41,7 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
                 <form action={submitReadingList}>
                     <input type="hidden" name="userId" value={user.id} />
                     <input type="hidden" name="blogId" value={blog.id} />
-                    <Button type="submit" className="mt-4">add to reading list</Button>
+                    <Button type="submit" className="mt-4" testId="add-to-reading-list-button">add to reading list</Button>
                 </form>
             )}
         </div>

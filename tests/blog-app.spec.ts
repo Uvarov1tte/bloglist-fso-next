@@ -374,12 +374,12 @@ test.describe("Blog Application", () => {
 
       // Go to me page and mark as read
       await page.goto(`${baseUrl}/me`)
-      await page.waitForSelector('[data-testid^="mark-read-"]', {
+      await page.waitForSelector('[data-testid="mark-read"]', {
         timeout: 10000,
       })
 
       // Click the first mark as read button
-      const markReadButton = page.locator('[data-testid^="mark-read-"]').first()
+      const markReadButton = page.locator('[data-testid="mark-read"]').first()
       await markReadButton.click()
 
       // Wait for the page to update
@@ -461,7 +461,7 @@ test.describe("Blog Application", () => {
       await page.getByTestId("generate-token-button").click()
 
       // Wait for token to potentially change
-      await page.waitForTimeout(500)
+      await page.waitForTimeout(1000)
       const secondToken = await page.getByTestId("api-token").textContent()
 
       // Tokens should be different
