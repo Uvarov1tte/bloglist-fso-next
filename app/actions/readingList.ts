@@ -28,7 +28,7 @@ export const markAsRead = async (formData: FormData) => {
             .update(readingList)
             .set({ read: true })
             .where(and(eq(readingList.userId, userId), eq(readingList.blogId, blogId)))
-        
-        revalidatePath('/me')
+
+        revalidatePath("/me")
     }
 }
