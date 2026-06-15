@@ -20,9 +20,9 @@ const BlogPage = async ({ params }: { params: Promise<{ id: string }> }) => {
     const existed = user ? await ifReadingListExisted(user.id, blog.id) : false
 
     return (
-        <div className="max-w-2xl mx-auto p-6">
-            <h2 className="text-2xl font-bold mb-4">{blog.title}</h2>
-            <p className="italic text-gray-500">by {blog.author}</p>
+        <div className="max-w-2xl mx-auto p-6" data-testid="blog-detail">
+            <h2 className="text-2xl font-bold mb-4" data-testid="blog-title">{blog.title}</h2>
+            <p className="italic text-gray-500" data-testid="blog-author">by {blog.author}</p>
             <Link
                 href={blog.url}
                 className="hover:text-blue-500 hover:underline"

@@ -6,9 +6,10 @@ interface InputProps {
     defaultValue?: any
     required?: boolean
     className?: string
+    testId?: string
 }
 
-const Input = ({ type, name, defaultValue, required, className }: InputProps) => {
+const Input = ({ type, name, defaultValue, required, className, testId }: InputProps) => {
 
     const styles = className ? `border rounded border-gray-500 p-2 ${className}` : "border rounded border-gray-500 p-2"
 
@@ -17,9 +18,9 @@ const Input = ({ type, name, defaultValue, required, className }: InputProps) =>
             <>
                 {
                     required ?
-                        <input type={type} name={name} className={styles} defaultValue={defaultValue} required />
+                        <input type={type} name={name} className={styles} defaultValue={defaultValue} data-testid={testId && testId} required />
                         :
-                        <input type={type} name={name} className={styles} defaultValue={defaultValue} />
+                        <input type={type} name={name} className={styles} defaultValue={defaultValue} data-testid={testId && testId} />
                 }
             </>
         )
@@ -28,9 +29,9 @@ const Input = ({ type, name, defaultValue, required, className }: InputProps) =>
             <>
                 {
                     required ?
-                        <input type={type} name={name} className={styles} required />
+                        <input type={type} name={name} className={styles} data-testid={testId && testId} required />
                         :
-                        <input type={type} name={name} className={styles} />
+                        <input type={type} name={name} className={styles} data-testid={testId && testId} />
                 }
             </>
         )

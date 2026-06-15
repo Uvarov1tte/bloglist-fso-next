@@ -23,46 +23,38 @@ const newBlog = () => {
         <div className="max-w-2xl mx-auto p-6">
             <h2 className="text-2xl font-bold mb-4">Create a new blog</h2>
             <form action={formAction}>
-                <table className="w-full">
-                    <tbody>
-                        <tr>
-                            <td className="w-1/4">Title</td>
-                            <td><Input
-                                type="text"
-                                name="title"
-                                required
-                                defaultValue={state.values?.title}
-                                className="w-full"
-                            /></td>
-                        </tr>
-                        <tr>
-                            <td>Author</td>
-                            <td>
-                                <Input
-                                    type="text"
-                                    name="author"
-                                    required
-                                    defaultValue={state.values?.author}
-                                    className="w-full"
-                                />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td >URL</td>
-                            <td>
-                                <Input
-                                    type="text"
-                                    name="url"
-                                    required
-                                    defaultValue={state.values?.url}
-                                    className="w-full"
-                                />
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">Title</div>
+                    <Input
+                        type="text"
+                        name="title"
+                        required
+                        defaultValue={state.values?.title}
+                        className="float-right w-3/4"
+                    />
+                </label>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">Author</div>
+                    <Input
+                        type="text"
+                        name="author"
+                        required
+                        defaultValue={state.values?.author}
+                        className="float-right w-3/4"
+                    />
+                </label>
+                <label className="flex h-[50px] items-center">
+                    <div className="float-left w-1/4">URL</div>
+                    <Input
+                        type="text"
+                        name="url"
+                        required
+                        defaultValue={state.values?.url}
+                        className="float-right w-3/4"
+                    />
+                </label>
 
-                <Button type="submit" className="mt-4">Create new blog</Button>
+                <Button type="submit" className="mt-4" testId="create-blog-button">Create new blog</Button>
                 {state.errors && Object.keys(state.errors).length > 0 && Object.values(state.errors).map((e: any, idx) => <p key={idx} style={{ color: "red" }}>{e.toString()}</p>)}
             </form>
         </div>

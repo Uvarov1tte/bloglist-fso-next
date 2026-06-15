@@ -20,11 +20,12 @@ const Blogs = async ({
                         type="text"
                         name="filter"
                         className="me-4"
+                        testId="filter-input"
                     />
-                    <Button type="submit">Search with filter</Button>
+                    <Button type="submit" testId="search-button">Search with filter</Button>
                 </form>
             </div>
-            <ul>
+            <ul data-testid="blogs-list">
                 {blogs.map(blog => (
                     <li key={blog.id} className="border rounded p-3 hover:bg-gray-50 hover:text-gray-900">
                         <p>
@@ -36,7 +37,7 @@ const Blogs = async ({
                             {" "}by {blog.author}
                         </p>
                         <Link href={blog.url}>Link to blog</Link>
-                        <p>Likes: {blog.likes}</p>
+                        <p>{blog.likes} likes</p>
                     </li>
                 ))}
             </ul>
